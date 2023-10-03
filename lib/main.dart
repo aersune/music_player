@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:just_audio_background/just_audio_background.dart';
+import 'package:music_player/screens/audio_play.dart';
 import 'package:music_player/screens/home_screen.dart';
 import 'package:flutter/services.dart';
 
 
-void main() {
+Future<void> main() async{
+  await JustAudioBackground.init(
+    androidNotificationChannelId: 'com.example.music_player.channel.audio',
+    androidNotificationChannelName: 'Audio Playback',
+    androidNotificationOngoing: true,
+  );
   runApp(const MyApp());
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [
     SystemUiOverlay.bottom

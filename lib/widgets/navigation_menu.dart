@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:music_player/screens/audio_play.dart';
 import 'package:music_player/screens/liked_songs_screen.dart';
 import 'package:music_player/utils/colors.dart';
 
@@ -31,7 +32,11 @@ class NavMenu extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 49,),
-          drawerItems('assets/icons/user.svg','Profile'),
+          InkWell(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => PlayerAudio()));
+              },
+              child: drawerItems('assets/icons/user.svg','Profile')),
           InkWell(
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const LikedSongsScreen()));

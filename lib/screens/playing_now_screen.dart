@@ -92,7 +92,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
                         Navigator.pop(context);
                       },
                       child: Padding(
-                          padding: EdgeInsets.only(right: 10, bottom: 5),
+                          padding: const EdgeInsets.only(right: 10, bottom: 5),
                           child: SvgPicture.asset('assets/icons/arrow_right.svg')),
                     ),
                   const Spacer(),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:music_player/models/models.dart';
-import 'package:music_player/screens/playing_now_screen.dart';
 import 'package:music_player/utils/colors.dart';
 import 'package:music_player/widgets/widgets.dart';
 
@@ -45,7 +44,7 @@ class LikedSongsScreen extends StatelessWidget {
                   child: InkWell(
                     borderRadius:  BorderRadius.circular(15),
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) =>  MusicPlayer(list: Music.musics[index],)));
+                        // Navigator.push(context, MaterialPageRoute(builder: (context) =>  MusicPlayer(list: Music.musics[index],)));
                       },
                       child: Ink(child: musicCard(Music.musics, index))),
                 );
