@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:just_audio_background/just_audio_background.dart';
-import 'package:music_player/screens/audio_play.dart';
 import 'package:music_player/screens/home_screen.dart';
 import 'package:flutter/services.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 
 Future<void> main() async{
@@ -23,7 +24,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
+      onInit: () async{
+        try{
+          var status = await Permission.storage.request();
+          if(status.isGranted){
+            print('isGranted');
+          } else if(status.isPermanentlyDenied){
+            openAppSettings();
+          }
+      } catch(e){
+          print('~~error~~~>>>>>> $e');
+        }
+      },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
